@@ -8,8 +8,8 @@ const port = process.env.PORT ||3000;
 
 app.use(cors());
 app.use(express.json());
-app.use(requestLogger);
-app.use(errorLogger);
+// app.use(requestLogger);
+// app.use(errorLogger);
 app.use('/server', router);
 
 app.listen(port, () => {
