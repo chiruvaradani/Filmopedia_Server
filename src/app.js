@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 app.use(requestLogger);
 app.use(errorLogger);
-app.use('/', router);
+app.use('/server', router);
 
 app.listen(port, () => {
   console.log(`server started at ${port}`);
