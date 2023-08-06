@@ -37,6 +37,35 @@ router.post('/UserLogin', async (req, res, next) => {
   }
 });
 
+router.post('/checkUser',async(req,res,next)=>{
+  const {email} = req.body
+  console.log(email);
+  const Users = await dbModel.getCollection()
+  const isPresent=await Users.find({email:email})
+  console.log(isPresent.length);
+  if(isPresent.length){
+    res.status(400).send({message:'User already exist'})
+  }else{
+    res.status(201).send({message:'Email not Found'})
+  }
+})
+
+router.post('/newUserData',async(req,res,next)=>{
+  const {password} = req.body
+  console.log(req.body);
+  console.log(password);
+  let UserData = req.body
+  const Users = await dbModel.getCollection()
+  UserData.passwod= bcrypt.hashSync(password,10)
+  console.log(UserData);
+  const AddUser = await Users.create(req.body)
+  if(AddUser){
+    res.status(201).send({message:'Registered Successfully'})
+  }else{
+    res.status(400).send({message:'Something went wrong'})
+  }
+})
+
 function VerifyToken(req, res, next) {
   const bearerHeader = req.headers['authorization'];
 
