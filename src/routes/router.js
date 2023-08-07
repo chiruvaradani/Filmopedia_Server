@@ -50,13 +50,14 @@ router.post('/checkUser',async(req,res,next)=>{
   }
 })
 
+
 router.post('/newUserData',async(req,res,next)=>{
   const {password} = req.body
   console.log(req.body);
   console.log(password);
   let UserData = req.body
   const Users = await dbModel.getCollection()
-  UserData.passwod= bcrypt.hashSync(password,10)
+  UserData.password= bcrypt.hashSync(password,10)
   console.log(UserData);
   const AddUser = await Users.create(req.body)
   if(AddUser){
