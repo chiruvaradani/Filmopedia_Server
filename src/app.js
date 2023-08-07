@@ -6,7 +6,13 @@ const requestLogger = require('./utilities/requestLogger');
 const errorLogger = require('./utilities/errorLogger');
 const port = process.env.PORT || 3000;
 
-app.use(cors());
+const corsOptions = {
+  origin: 'https://chiruvaradani.github.io/Filmopedia/', // Replace with your allowed origin
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 // app.use(requestLogger);
 // app.use(errorLogger);
