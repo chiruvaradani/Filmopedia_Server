@@ -7,7 +7,7 @@ const errorLogger = require('./utilities/errorLogger');
 const port = process.env.PORT || 3000;
 
 const corsOptions = {
-  origin: 'https://chiruvaradani.github.io/Filmopedia/', // Replace with your allowed origin
+  origin: 'https://chiruvaradani.github.io', // Replace with your allowed origin
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 204,
