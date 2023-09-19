@@ -4,7 +4,7 @@ const cors = require('cors');
 const router = require('./routes/router');
 const requestLogger = require('./utilities/requestLogger');
 const errorLogger = require('./utilities/errorLogger');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 const corsOptions = {
   origin: 'https://chiruvaradani.github.io', // Replace with your allowed origin
